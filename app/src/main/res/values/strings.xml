@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Cocktails DB</string>
+    <string name="history_is_empty">History is empty</string>
+    <string name="todo">TODO</string>
 </resources>

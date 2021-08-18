@@ -1,48 +1,41 @@
 package com.example.cocktailsdb;
 
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.bumptech.glide.Glide;
-import com.example.cocktailsdb.model.RealmDrink;
 
 import io.realm.Realm;
-import io.realm.RealmConfiguration;
-import io.realm.RealmObject;
-import io.realm.RealmResults;
 
 
 public class Detailed extends AppCompatActivity {
 
-    private TextView tvName, tvAlcoholic, tvGlass, tvInstruction;
-    private ImageView ivThumbnail;
-    private TableLayout tl;
     private int i = 1;
     Realm realm;
-    private static final String TAG = "Realm";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detailed);
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.setHomeButtonEnabled(true);
         actionBar.setDisplayHomeAsUpEnabled(true);
 
-        tvName = findViewById(R.id.tvName);
-        tvAlcoholic = findViewById(R.id.tvAlcoholic);
-        tvGlass = findViewById(R.id.tvGlass);
-        ivThumbnail = (ImageView) findViewById(R.id.ivThumbnail);
-        tvInstruction = findViewById(R.id.tvInstruction);
-        tl = findViewById(R.id.tl);
+        TextView tvName = findViewById(R.id.tvName);
+        TextView tvAlcoholic = findViewById(R.id.tvAlcoholic);
+        TextView tvGlass = findViewById(R.id.tvGlass);
+        ImageView ivThumbnail = findViewById(R.id.ivThumbnail);
+        TextView tvInstruction = findViewById(R.id.tvInstruction);
+        TableLayout tl = findViewById(R.id.tl);
 
         Intent intent = getIntent();
 
@@ -92,12 +85,10 @@ public class Detailed extends AppCompatActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            this.finish();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 }

@@ -1,7 +1,5 @@
 package com.example.cocktailsdb;
 
-import io.realm.RealmObject;
-
 public class Drinks {
 
         private String strDrink;

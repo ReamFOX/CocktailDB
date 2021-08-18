@@ -38,10 +38,6 @@ public class RealmDrink extends RealmObject {
 
     private String ingredient13;
 
-    private String ingredient14;
-
-    private String ingredient15;
-
     private String measure1;
 
     private String measure2;
@@ -69,11 +65,6 @@ public class RealmDrink extends RealmObject {
     private String measure13;
 
     public RealmDrink() {
-    }
-
-    public RealmDrink(String name, String thumb) {
-        this.name = name;
-        this.thumb = thumb;
     }
 
     public String getName() {
@@ -218,22 +209,6 @@ public class RealmDrink extends RealmObject {
 
     public void setIngredient13(String ingredient13) {
         this.ingredient13 = ingredient13;
-    }
-
-    public String getIngredient14() {
-        return ingredient14;
-    }
-
-    public void setIngredient14(String ingredient14) {
-        this.ingredient14 = ingredient14;
-    }
-
-    public String getIngredient15() {
-        return ingredient15;
-    }
-
-    public void setIngredient15(String ingredient15) {
-        this.ingredient15 = ingredient15;
     }
 
     public String getMeasure1() {

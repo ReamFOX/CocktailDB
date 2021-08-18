@@ -1,8 +1,8 @@
 package com.example.cocktailsdb;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +12,6 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 
 import com.example.cocktailsdb.model.RealmDrink;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,7 +27,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RecyclerView rvMain;
     RealmAdapter adapter;
     Realm realm;
-    private static final String TAG = "Realm";
 
 
     @Override
@@ -38,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         rvMain = findViewById(R.id.rvMain);
         tvHistory = findViewById(R.id.tvHistory);
-        fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab = findViewById(R.id.fab);
         fab.setOnClickListener(this);
         rvMain.setLayoutManager(new GridLayoutManager(this, 2));
         realm = Realm.getDefaultInstance();
@@ -66,6 +64,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -84,25 +83,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return true;
     }
 
-    private void readData() {
-        RealmResults<RealmDrink> drinks = realm.where(RealmDrink.class).findAll();
-
-        tvHistory.setText("");
-        String data = "";
-
-        for (RealmDrink realmDrink:drinks) {
-                Log.d(TAG, "readData: Reading Data");
-        }
-
-        tvHistory.setText(data);
-    }
-
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.fab:
-                Intent intent = new Intent(MainActivity.this, searchRes.class);
-                startActivity(intent);
+        if (v.getId() == R.id.fab) {
+            Intent intent = new Intent(MainActivity.this, searchRes.class);
+            startActivity(intent);
         }
 
     }

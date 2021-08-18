@@ -11,14 +11,16 @@
         android:elevation="2dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginRight="15dp"
+        android:layout_marginEnd="15dp"
         android:layout_marginBottom="15dp"
         android:backgroundTint="@color/colorPrimary"
         android:clickable="true"
         app:backgroundTint="@color/colorPrimary"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@android:drawable/ic_menu_search" />
+        app:srcCompat="@android:drawable/ic_menu_search"
+        android:focusable="true"
+        android:contentDescription="@string/todo" />
 
     <TextView
         android:id="@+id/tvHistory"
@@ -28,7 +30,7 @@
         android:layout_marginTop="354dp"
         android:layout_marginEnd="172dp"
         android:layout_marginBottom="358dp"
-        android:text="History is empty"
+        android:text="@string/history_is_empty"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
